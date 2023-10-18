@@ -12,7 +12,7 @@ export const routes: Array<Route> = [
   {
     key: "details-route",
     title: "CryptoExchangeDetails",
-    path: "/details",
+    path: "/exchanges/:id",
     // enabled: true,
     element: CryptoExchangeDetails,
   },

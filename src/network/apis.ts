@@ -14,9 +14,10 @@ export const getExchanges = async (): Promise<[]> => {
 /**
  * An asynchronous function that fetches exchanges by their ID from a specified base URL.
  * @param {string} id - The `id` parameter is a string that represents the unique identifier of an exchange.
- * @returns {array} a Promise that resolves to an array ([]).
+ * @returns {object} a Promise that resolves to an object ({}).
  */
-export const getExchangeById = async (id: string): Promise<[]> => {
-    const response = await fetch(`${baseUrl}/exchanges/?${id}`);
+export const getExchangeById = async (id: string): Promise<{}> => {
+    const response = await fetch(`${baseUrl}/exchanges/${id}`);
+    // console.log('response', response.json())
     return response.json();
 }

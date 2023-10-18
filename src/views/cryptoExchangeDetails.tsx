@@ -4,16 +4,6 @@ import { useParams, useNavigate } from "react-router-dom"
 export default function CryptoExchangeDetails() {
     const [exchangeDetails, setExchangeDetails] = useState([]);
 
-    const handleClick = () => {
-    }
-
-
-    const handleKeyDown = (event: any) => {
-      if(event.key === 'Enter') {
-        handleClick();
-      }
-    }
-
     return (
         <section className='padding'>
             <code className='center'>Exchange details</code>

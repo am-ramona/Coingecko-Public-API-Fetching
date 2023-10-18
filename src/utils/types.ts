@@ -7,3 +7,13 @@ export interface Route {
     // enabled: boolean,
     element: FC<{}>
 }
+
+export interface Exchange {
+    id: string;
+    name: string;
+    country: string;
+    url: string;
+    trust_score_rank: number;
+    image: string;
+  }
+  

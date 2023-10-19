@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getExchanges, limit } from "../network/apis";
 import { Exchange } from "../utils/types";
 
-export default function Directory() {
+const Directory: React.FC = () => {
   const [exchanges, setExchanges] = useState<Exchange[]>([]);
 
   useEffect(() => {
@@ -16,7 +16,7 @@ export default function Directory() {
 
   return (
     <section className="frame grid">
-      <code className="header grid green center">
+      <code className="header grid green">
         CryptoCurrency exchanges on Coingecko
       </code>
       <code className="italic">
@@ -25,7 +25,7 @@ export default function Directory() {
       </code>
 
       <main className="card grid">
-        <div className="list grid center">
+        <div className="list grid">
           <span> Name </span>
           <span> Country </span>
           <span> Url </span>
@@ -37,16 +37,13 @@ export default function Directory() {
           {exchanges &&
             exchanges.length !== 0 &&
             exchanges.map((exchange, index) => (
-              <Link
-                to={`/exchanges/${exchange.id}`}
-                key={exchange.id}
-              >
-                <li className="list grid center">
-                <span>{exchange.name}</span>
-                <span>{exchange.country}</span>
-                <span className="break">{exchange.url}</span>
-                <img src={exchange.image} alt={`${exchange.name} logo`} />
-                <span>{exchange.trust_score_rank}</span>
+              <Link to={`/exchanges/${exchange.id}`} key={exchange.id}>
+                <li className="list grid">
+                  <span>{exchange.name}</span>
+                  <span>{exchange.country}</span>
+                  <span className="break">{exchange.url}</span>
+                  <img src={exchange.image} alt={`${exchange.name} logo`} />
+                  <span>{exchange.trust_score_rank}</span>
                 </li>
               </Link>
             ))}
@@ -55,3 +52,5 @@ export default function Directory() {
     </section>
   );
 }
+
+export default Directory;

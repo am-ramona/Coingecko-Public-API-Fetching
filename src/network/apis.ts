@@ -7,8 +7,10 @@ export const limit: number = 10;
  * @returns {array} the result of the fetch request, a Promise that resolves to the JSON response from the API call.
  */
 export const getExchanges = async (): Promise<[]> => {
-    const response = await fetch(`${baseUrl}/exchanges?per_page=${limit}&x_cg_demo_api_key=${apiKey}`);
-    return response.json();
+  const response = await fetch(
+    `${baseUrl}/exchanges?per_page=${limit}&x_cg_demo_api_key=${apiKey}`,
+  );
+  return response.json();
 };
 
 /**
@@ -17,7 +19,7 @@ export const getExchanges = async (): Promise<[]> => {
  * @returns {object} a Promise that resolves to an object ({}).
  */
 export const getExchangeById = async (id: string): Promise<{}> => {
-    const response = await fetch(`${baseUrl}/exchanges/${id}`);
-    // console.log('response', response.json())
-    return response.json();
-}
+  const response = await fetch(`${baseUrl}/exchanges/${id}`);
+  // console.log('response', response.json())
+  return response.json();
+};

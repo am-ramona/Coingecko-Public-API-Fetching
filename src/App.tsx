@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { routes as appRoutes } from "./routes";
 import "./App.css";
 
-const App = () => (
+const App = (): JSX.Element => (
   <Router>
     <Suspense fallback={<div>Loading...</div>}>
       <Routes>

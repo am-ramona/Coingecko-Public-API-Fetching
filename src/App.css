@@ -30,20 +30,12 @@ a {
   text-decoration: none;
 }
 
-li:hover>span {
+li:hover > span {
   color: rgb(153, 151, 151);
 }
 
 .green {
   color: rgb(75, 204, 0);
-}
-
-.red {
-  color: red;
-}
-
-.red:hover {
-  color: rgb(236, 104, 104);
 }
 
 .yellow {
@@ -80,10 +72,12 @@ li:hover>span {
 }
 
 .header::before {
-  background: linear-gradient(to bottom right,
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0.3));
+  background: linear-gradient(
+    to bottom right,
+    rgba(1, 65, 255, 0),
+    rgba(1, 65, 255, 0),
+    rgba(1, 65, 255, 0.3)
+  );
   border-radius: 50%;
   width: 480px;
   height: 360px;
@@ -124,7 +118,6 @@ button:hover {
 .frame {
   grid-template-columns: 1fr;
   grid-template-rows: 120px auto auto;
-  justify-content: center;
   grid-gap: 10px;
   margin: 1rem;
 }
@@ -164,7 +157,9 @@ button:hover {
   border-radius: 12px;
   background: rgba(100, 100, 100, 0);
   border: 1px solid rgba(200, 200, 200, 0);
-  transition: background 200ms, border 200ms;
+  transition:
+    background 200ms,
+    border 200ms;
   grid-template-rows: auto auto;
   grid-gap: 20px;
   overflow-x: auto;
@@ -177,18 +172,20 @@ button:hover {
 
 .card ul li {
   padding: 0 0 10px 0;
+  text-align: center;
 }
 
-.card>.list>span {
+.card > .list > span {
   text-decoration: underline;
   font-weight: bold;
+  text-align: center;
 }
 
 .list {
   grid-template-columns: repeat(5, 1fr);
 }
 
-.list>span {
+.list > span {
   color: rgb(74, 74, 74);
 }
 
@@ -231,10 +228,5 @@ button:hover {
 
   .card.grid {
     justify-content: flex-start;
-  }
-
-  .center::before {
-    transform: none;
-    height: 300px;
   }
 }

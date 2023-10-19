@@ -1,8 +1,8 @@
 describe("Crypto Exchanges Directory", () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000');
+    cy.visit("http://localhost:3000");
     cy.request(
-      "https://api.coingecko.com/api/v3/exchanges?per_page=10&x_cg_demo_api_key=CG-kbvAdBD7HbiG2LMiXV7upNFb"
+      "https://api.coingecko.com/api/v3/exchanges?per_page=10&x_cg_demo_api_key=CG-kbvAdBD7HbiG2LMiXV7upNFb",
     ).as("exchangesList");
   });
 

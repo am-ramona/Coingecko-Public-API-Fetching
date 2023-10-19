@@ -34,4 +34,5 @@ export interface ExchangeDetails {
   slack_url: string;
   other_url_1: string;
   other_url_2: string;
+  twitter_handle: string;
 }

@@ -1,7 +1,6 @@
 import { Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { routes as appRoutes } from "./routes";
-import { Directory, CryptoExchangeDetails, NoMatch } from "./pages";
 import "./App.css";
 
 const App = () => (
@@ -15,9 +14,6 @@ const App = () => (
             element={<route.element />}
           />
         ))}
-        {/* <Route path="/" element={<Directory />} />
-        <Route path="/exchanges/:id" element={<CryptoExchangeDetails />} />
-        <Route path="*" element={<NoMatch />} /> */}
       </Routes>
     </Suspense>
   </Router>

@@ -15,8 +15,8 @@ export default function Directory() {
   }, []);
 
   return (
-    <section className="frame">
-      <code className="center green">
+    <section className="frame grid">
+      <code className="header grid green center">
         CryptoCurrency exchanges on Coingecko
       </code>
       <code className="italic">
@@ -24,13 +24,13 @@ export default function Directory() {
         <span className="yellow">limited to {limit}:</span>
       </code>
 
-      <main className="card">
-        <div className="grid">
-          <span className="underline bold"> Name </span>
-          <span className="underline bold"> Country </span>
-          <span className="underline bold"> Url </span>
-          <span className="underline bold"> Logo </span>
-          <span className="underline bold"> Trust rank </span>
+      <main className="card grid">
+        <div className="list grid center">
+          <span> Name </span>
+          <span> Country </span>
+          <span> Url </span>
+          <span> Logo </span>
+          <span> Trust rank </span>
         </div>
 
         <ul>
@@ -41,7 +41,7 @@ export default function Directory() {
                 to={`/exchanges/${exchange.id}`}
                 key={exchange.id}
               >
-                <li className="grid">
+                <li className="list grid center">
                 <span>{exchange.name}</span>
                 <span>{exchange.country}</span>
                 <span className="break">{exchange.url}</span>

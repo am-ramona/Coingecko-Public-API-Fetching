@@ -6,21 +6,18 @@ export const routes: Array<Route> = [
     key: "directory-route",
     title: "Directory",
     path: "/",
-    // enabled: true,
     element: Directory,
   },
   {
     key: "details-route",
     title: "CryptoExchangeDetails",
     path: "/exchanges/:id",
-    // enabled: true,
     element: CryptoExchangeDetails,
   },
   {
     key: "noMatch-route",
     title: "404page",
     path: "*",
-    // enabled: true,
     element: NoMatch,
   },
 ];

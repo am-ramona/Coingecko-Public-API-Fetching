@@ -1,6 +1,6 @@
 describe("Crypto Exchanges Directory", () => {
   beforeEach(() => {
-    cy.visit(Cypress.config().baseUrl);
+    cy.visit('http://localhost:3000');
     cy.request(
       "https://api.coingecko.com/api/v3/exchanges?per_page=10&x_cg_demo_api_key=CG-kbvAdBD7HbiG2LMiXV7upNFb"
     ).as("exchangesList");
@@ -22,7 +22,7 @@ describe("Crypto Exchanges Directory", () => {
         expect(response.body).to.have.length(10);
       });
     });
-    
+
     it("the user is redirected to the exchange details page when the first exchange is clicked", () => {
       cy.get("li").first().click();
       cy.url().should("include", "/exchanges/").as("url");

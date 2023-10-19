@@ -19,10 +19,9 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    // "types": ["cypress"]
+    "types": ["cypress"]
   },
   "include": [
     "src"
-  ],
-  // "exclude": ["cypress"] 
+  ]
 }

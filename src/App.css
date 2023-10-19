@@ -1,19 +1,22 @@
-.main {
-  display: grid;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
+main {
+  min-height: 100%;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(10%, 60%));
+  align-items: center;
+  justify-content: center;
   max-width: 100%;
 }
 
-/* .break {
-   word-break: break-word;
-  } */
+img {
+  display: block;
+  margin: 0 auto;
+}
+
+.break {
+  word-break: break-word;
+}
 
 .underline {
   text-decoration: underline;
@@ -23,31 +26,12 @@
   font-weight: bold;
 }
 
-.frame {
-  display: grid;
-  /* grid-template-rows: repeat(3, 1fr); */
-  /* grid-template-columns: repeat(3, minmax(5%, 90%)); */
-  grid-gap: 1rem;
-  /* height: 100%; */
-  margin: 1rem;
+a {
+  text-decoration: none;
 }
 
-.card {
-  max-width: 85%;
-  padding: 1rem 1.2rem;
-  border-radius: 12px;
-  background: rgba(100, 100, 100, 0);
-  border: 1px solid rgba(200, 200, 200, 0);
-  transition: background 200ms, border 200ms;
-}
-
-.card span {
-  display: inline-block;
-  transition: transform 200ms;
-}
-
-.section {
-  height: 100%;
+li:hover>span {
+  color: rgb(153, 151, 151);
 }
 
 .green {
@@ -66,6 +50,10 @@
   color: rgb(249, 233, 136);
 }
 
+.grey {
+  color: rgb(74, 74, 74);
+}
+
 .pointer {
   cursor: pointer;
 }
@@ -75,11 +63,7 @@
 }
 
 .center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  padding: 4rem 0;
+  text-align: center;
 }
 
 .italic {
@@ -95,13 +79,11 @@
   padding: 0 1rem;
 }
 
-.center::before {
-  background: linear-gradient(
-    to bottom right,
-    rgba(1, 65, 255, 0),
-    rgba(1, 65, 255, 0),
-    rgba(1, 65, 255, 0.3)
-  );
+.header::before {
+  background: linear-gradient(to bottom right,
+      rgba(1, 65, 255, 0),
+      rgba(1, 65, 255, 0),
+      rgba(1, 65, 255, 0.3));
   border-radius: 50%;
   width: 480px;
   height: 360px;
@@ -110,7 +92,7 @@
   z-index: -1;
 }
 
-.center::after {
+.header::after {
   background: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
   width: 240px;
   height: 180px;
@@ -118,8 +100,8 @@
   z-index: -1;
 }
 
-.center::before,
-.center::after {
+.header::before,
+.header::after {
   content: "";
   left: 50%;
   position: absolute;
@@ -127,14 +109,132 @@
   transform: translateZ(0);
 }
 
+button {
+  width: 100px;
+  background-color: rgb(0, 0, 0);
+  border: 1px solid rgb(200, 200, 200);
+  color: white;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: rgba(200, 200, 200, 0.15);
+}
+
+.frame {
+  grid-template-columns: 1fr;
+  grid-template-rows: 120px auto auto;
+  justify-content: center;
+  grid-gap: 10px;
+  margin: 1rem;
+}
+
+.details {
+  grid-template-columns: 1fr;
+  grid-template-rows: 120px 30px 30px 30px 80px 30px auto auto auto;
+  justify-content: center;
+  grid-gap: 10px;
+  margin: 1rem;
+}
+
+.details p {
+  align-self: flex-start;
+  justify-self: flex-start;
+  font-size: 1em;
+}
+
+.details a {
+  text-decoration: underline;
+  color: rgb(74, 74, 74);
+}
+
+.details a:hover {
+  color: rgb(153, 151, 151);
+}
+
+.details span img {
+  margin-left: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.card {
+  max-width: 70%;
+  padding: 1rem 1.2rem;
+  border-radius: 12px;
+  background: rgba(100, 100, 100, 0);
+  border: 1px solid rgba(200, 200, 200, 0);
+  transition: background 200ms, border 200ms;
+  grid-template-rows: auto auto;
+  grid-gap: 20px;
+  overflow-x: auto;
+}
+
+.card span {
+  display: inline-block;
+  transition: transform 200ms;
+}
+
+.card ul li {
+  padding: 0 0 10px 0;
+}
+
+.card>.list>span {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.list {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.list>span {
+  color: rgb(74, 74, 74);
+}
+
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
   .card:hover {
-    background: rgba(100, 100, 100, 0.1);
+    background: rgba(100, 100, 100 0.1);
     border: 1px solid rgba(200, 200, 200, 0.15);
   }
 
   .card:hover span {
     transform: translateX(4px);
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .card:hover span {
+    transform: none;
+  }
+}
+
+/* Tablet and Smaller Desktop */
+@media screen and (max-width: 1120px) {
+  .card li span {
+    font-size: 14px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .card {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .card ul {
+    margin: 0;
+    width: 600px;
+  }
+
+  .card.grid {
+    justify-content: flex-start;
+  }
+
+  .center::before {
+    transform: none;
+    height: 300px;
   }
 }

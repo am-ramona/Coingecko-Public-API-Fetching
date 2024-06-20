@@ -1,4 +1,5 @@
-const apiKey: string = "CG-kbvAdBD7HbiG2LMiXV7upNFb";
+import type { ExchangeDetails } from "../utils/types";
+
 const baseUrl: string = "https://api.coingecko.com/api/v3";
 export const limit: number = 10;
 
@@ -8,9 +9,9 @@ export const limit: number = 10;
  */
 export const getExchanges = async (): Promise<[]> => {
   const response = await fetch(
-    `${baseUrl}/exchanges?per_page=${limit}&x_cg_demo_api_key=${apiKey}`,
+    `${baseUrl}/exchanges?per_page=${limit}&x_cg_demo_api_key=${process.env.REACT_APP_API_KEY}`
   );
-  return response.json();
+  return await response.json();
 };
 
 /**
@@ -18,8 +19,8 @@ export const getExchanges = async (): Promise<[]> => {
  * @param {string} id - The `id` parameter is a string that represents the unique identifier of an exchange.
  * @returns {object} a Promise that resolves to an object ({}).
  */
-export const getExchangeById = async (id: string): Promise<{}> => {
+export const getExchangeById = async (id: string): Promise<ExchangeDetails> => {
   const response = await fetch(`${baseUrl}/exchanges/${id}`);
   // console.log('response', response.json())
-  return response.json();
+  return await response.json();
 };

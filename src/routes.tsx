@@ -1,5 +1,5 @@
-import { Directory, CryptoExchangeDetails, NoMatch } from './pages'
-import { type Route } from './utils/types'
+import { Directory, CryptoExchangeDetails, NoMatch } from './pages';
+import type { Route } from './utils/types';
 
 export const routes: Route[] = [
   {

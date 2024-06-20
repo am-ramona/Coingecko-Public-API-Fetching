@@ -1,10 +1,10 @@
-import { FC } from "react";
+import type { FC } from "react";
 
 export interface Route {
   key: string;
   title: string;
   path: string;
-  element: FC<{}>;
+  element: FC<Record<string, unknown>>;
 }
 
 export interface Exchange {
@@ -16,8 +16,9 @@ export interface Exchange {
   image: string;
 }
 
-export type ExchangeID = {
-  id: string;
+export interface ExchangeID {
+  id: string | undefined;
+  [key: string]: string | undefined;
 };
 
 export interface ExchangeDetails {

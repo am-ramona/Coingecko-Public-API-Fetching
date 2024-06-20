@@ -1,17 +1,22 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { getExchanges, limit } from "../network/apis";
-import { Exchange } from "../utils/types";
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { getExchanges, limit } from '../network/apis';
+import type { Exchange } from '../utils/types';
 
 const Directory: React.FC = () => {
   const [exchanges, setExchanges] = useState<Exchange[]>([]);
 
   useEffect(() => {
-    async function fetchExchanges() {
+    async function fetchExchanges (): Promise<void> {
+      try {
       const data = await getExchanges();
       setExchanges(data);
+      }
+      catch (error) {
+        console.error('Error fetching exchanges:', error);
+      }
     }
-    fetchExchanges();
+    void fetchExchanges();
   }, []);
 
   return (
@@ -34,8 +39,7 @@ const Directory: React.FC = () => {
         </div>
 
         <ul>
-          {exchanges &&
-            exchanges.length !== 0 &&
+          {exchanges.length !== 0 &&
             exchanges.map((exchange, index) => (
               <Link to={`/exchanges/${exchange.id}`} key={exchange.id}>
                 <li className="list grid">

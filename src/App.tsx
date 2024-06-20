@@ -1,7 +1,7 @@
-import { Suspense } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { routes as appRoutes } from "./routes";
-import "./App.css";
+import { Suspense } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { routes as appRoutes } from './routes';
+import './App.css';
 
 const App = (): JSX.Element => (
   <Router>

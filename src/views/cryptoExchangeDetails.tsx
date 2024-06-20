@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getExchangeById } from "../network/apis";
-import { ExchangeID, ExchangeDetails } from "../utils/types";
+import type { ExchangeID, ExchangeDetails } from "../utils/types";
 
 const CryptoExchangeDetails: React.FC = () => {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   const { id } = useParams<ExchangeID>();
   const [exchangeDetails, setExchangeDetails] =
     useState<ExchangeDetails | null>(null);
 
   useEffect(() => {
-    async function fetchExchangeDetails() {
-      if (id) {
+    async function fetchExchangeDetails (): Promise<void> {
+      if (id != null) {
         const data = await getExchangeById(id);
-        setExchangeDetails(data as ExchangeDetails);
+        setExchangeDetails(data);
       }
     }
-    fetchExchangeDetails();
+    void fetchExchangeDetails();
   }, [id]);
 
   if (exchangeDetails === null) return <p className="yellow">Loading ...</p>;
@@ -34,7 +34,7 @@ const CryptoExchangeDetails: React.FC = () => {
       <ul>
         <p className="italic">Social media links:</p>
 
-        {exchangeDetails.facebook_url && (
+        {exchangeDetails.facebook_url !== '' && (
           <li>
             <a
               href={exchangeDetails.facebook_url}
@@ -45,7 +45,7 @@ const CryptoExchangeDetails: React.FC = () => {
             </a>
           </li>
         )}
-        {exchangeDetails.reddit_url && (
+        {exchangeDetails.reddit_url !== '' && (
           <li>
             <a
               href={exchangeDetails.reddit_url}
@@ -57,7 +57,7 @@ const CryptoExchangeDetails: React.FC = () => {
           </li>
         )}
 
-        {exchangeDetails.telegram_url && (
+        {exchangeDetails.telegram_url !== '' && (
           <li>
             <a
               href={exchangeDetails.telegram_url}
@@ -69,7 +69,7 @@ const CryptoExchangeDetails: React.FC = () => {
           </li>
         )}
 
-        {exchangeDetails.slack_url && (
+        {exchangeDetails.slack_url !== '' && (
           <li>
             <a
               href={exchangeDetails.slack_url}
@@ -81,40 +81,40 @@ const CryptoExchangeDetails: React.FC = () => {
           </li>
         )}
 
-        {exchangeDetails.other_url_1 && (
+        {exchangeDetails.other_url_1 !== '' && (
           <li>
             <a
               href={exchangeDetails.other_url_1}
               rel="noreferrer"
               target="_blank"
             >
-              {(new URL(exchangeDetails.other_url_1) as URL).hostname.replace(
+              {(new URL(exchangeDetails.other_url_1)).hostname.replace(
                 /www.|.com/g,
-                (matched) => "",
+                (matched) => '',
               )}
             </a>
           </li>
         )}
 
-        {exchangeDetails.other_url_2 && (
+        {exchangeDetails.other_url_2 !== '' && (
           <li>
             <a
               href={exchangeDetails.other_url_2}
               rel="noreferrer"
               target="_blank"
             >
-              {(new URL(exchangeDetails.other_url_2) as URL).hostname.replace(
+              {(new URL(exchangeDetails.other_url_2)).hostname.replace(
                 /www.|.com/g,
-                (matched) => "",
+                (matched) => '',
               )}
             </a>
           </li>
         )}
 
-        {exchangeDetails.twitter_handle && (
+        {exchangeDetails.twitter_handle !== '' && (
           <li>
             <a
-              href={"http://twitter.com/" + exchangeDetails.twitter_handle}
+              href={'http://twitter.com/' + exchangeDetails.twitter_handle}
               rel="noreferrer"
               target="_blank"
             >
@@ -126,10 +126,10 @@ const CryptoExchangeDetails: React.FC = () => {
       <p>
         Description:
         {exchangeDetails?.description.length === 0
-          ? "not available"
+          ? 'not available'
           : exchangeDetails.description}
       </p>
-      <button type="button" onClick={() => navigate(-1)} className="pointer">
+      <button type="button" onClick={() => { navigate(-1) }} className="pointer">
         Back
       </button>
     </section>

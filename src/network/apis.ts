@@ -9,7 +9,7 @@ export const limit: number = 10;
  */
 export const getExchanges = async (): Promise<[]> => {
   const response = await fetch(
-    `${baseUrl}/exchanges?per_page=${limit}&x_cg_demo_api_key=${process.env.REACT_APP_API_KEY}`
+    `${baseUrl}/exchanges?per_page=${limit}&x_cg_demo_api_key=${process.env.REACT_APP_API_KEY}`,
   );
   return await response.json();
 };

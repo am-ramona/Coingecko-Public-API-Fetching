@@ -1,19 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { getExchanges, limit } from '../network/apis';
-import type { Exchange } from '../utils/types';
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { getExchanges, limit } from "../network/apis";
+import type { Exchange } from "../utils/types";
 
 const Directory: React.FC = () => {
   const [exchanges, setExchanges] = useState<Exchange[]>([]);
 
   useEffect(() => {
-    async function fetchExchanges (): Promise<void> {
+    async function fetchExchanges(): Promise<void> {
       try {
-      const data = await getExchanges();
-      setExchanges(data);
-      }
-      catch (error) {
-        console.error('Error fetching exchanges:', error);
+        const data = await getExchanges();
+        setExchanges(data);
+      } catch (error) {
+        console.error("Error fetching exchanges:", error);
       }
     }
     void fetchExchanges();
@@ -55,6 +54,6 @@ const Directory: React.FC = () => {
       </main>
     </section>
   );
-}
+};
 
 export default Directory;

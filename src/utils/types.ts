@@ -19,7 +19,7 @@ export interface Exchange {
 export interface ExchangeID {
   id: string | undefined;
   [key: string]: string | undefined;
-};
+}
 
 export interface ExchangeDetails {
   name: string;

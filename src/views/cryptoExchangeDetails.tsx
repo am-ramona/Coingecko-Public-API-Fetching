@@ -3,15 +3,15 @@ import { useParams, useNavigate } from "react-router-dom";
 import { getExchangeById } from "../network/apis";
 import type { ExchangeID, ExchangeDetails } from "../utils/types";
 
-/*-- const socialMedia_urls = {
-  'Facebook': 'facebook_url', 
-  'Reddit': 'reddit_url', 
+/* -- const socialMedia_urls = {
+  'Facebook': 'facebook_url',
+  'Reddit': 'reddit_url',
   'Telegram': 'telegram_url',
   'Slack': 'slack_url',
   'other_url_1': 'other_url_1',
   'other_url_2':'other_url_2'
 }
---*/
+-- */
 
 const CryptoExchangeDetails: React.FC = () => {
   const navigate = useNavigate();
@@ -20,7 +20,7 @@ const CryptoExchangeDetails: React.FC = () => {
     useState<ExchangeDetails | null>(null);
 
   useEffect(() => {
-    async function fetchExchangeDetails (): Promise<void> {
+    async function fetchExchangeDetails(): Promise<void> {
       if (id != null) {
         const data = await getExchangeById(id);
         setExchangeDetails(data);
@@ -42,9 +42,9 @@ const CryptoExchangeDetails: React.FC = () => {
       </span>
       <p> Year of establishment: {exchangeDetails.year_established}</p>
       <ul>
-        <p className="italic">Social media links:</p>      
+        <p className="italic">Social media links:</p>
 
-        {exchangeDetails.facebook_url !== '' && (
+        {exchangeDetails.facebook_url !== "" && (
           <li>
             <a
               href={exchangeDetails.facebook_url}
@@ -55,7 +55,7 @@ const CryptoExchangeDetails: React.FC = () => {
             </a>
           </li>
         )}
-        {exchangeDetails.reddit_url !== '' && (
+        {exchangeDetails.reddit_url !== "" && (
           <li>
             <a
               href={exchangeDetails.reddit_url}
@@ -67,7 +67,7 @@ const CryptoExchangeDetails: React.FC = () => {
           </li>
         )}
 
-        {exchangeDetails.telegram_url !== '' && (
+        {exchangeDetails.telegram_url !== "" && (
           <li>
             <a
               href={exchangeDetails.telegram_url}
@@ -79,7 +79,7 @@ const CryptoExchangeDetails: React.FC = () => {
           </li>
         )}
 
-        {exchangeDetails.slack_url !== '' && (
+        {exchangeDetails.slack_url !== "" && (
           <li>
             <a
               href={exchangeDetails.slack_url}
@@ -91,40 +91,40 @@ const CryptoExchangeDetails: React.FC = () => {
           </li>
         )}
 
-        {exchangeDetails.other_url_1 !== '' && (
+        {exchangeDetails.other_url_1 !== "" && (
           <li>
             <a
               href={exchangeDetails.other_url_1}
               rel="noreferrer"
               target="_blank"
             >
-              {(new URL(exchangeDetails.other_url_1)).hostname.replace(
+              {new URL(exchangeDetails.other_url_1).hostname.replace(
                 /www.|.com/g,
-                (matched) => '',
+                (matched) => "",
               )}
             </a>
           </li>
         )}
 
-        {exchangeDetails.other_url_2 !== '' && (
+        {exchangeDetails.other_url_2 !== "" && (
           <li>
             <a
               href={exchangeDetails.other_url_2}
               rel="noreferrer"
               target="_blank"
             >
-              {(new URL(exchangeDetails.other_url_2)).hostname.replace(
+              {new URL(exchangeDetails.other_url_2).hostname.replace(
                 /www.|.com/g,
-                (matched) => '',
+                (matched) => "",
               )}
             </a>
           </li>
         )}
 
-        {exchangeDetails.twitter_handle !== '' && (
+        {exchangeDetails.twitter_handle !== "" && (
           <li>
             <a
-              href={'http://twitter.com/' + exchangeDetails.twitter_handle}
+              href={"http://twitter.com/" + exchangeDetails.twitter_handle}
               rel="noreferrer"
               target="_blank"
             >
@@ -136,14 +136,20 @@ const CryptoExchangeDetails: React.FC = () => {
       <p>
         Description:
         {exchangeDetails?.description.length === 0
-          ? 'not available'
+          ? "not available"
           : exchangeDetails.description}
       </p>
-      <button type="button" onClick={() => { navigate(-1) }} className="pointer">
+      <button
+        type="button"
+        onClick={() => {
+          navigate(-1);
+        }}
+        className="pointer"
+      >
         Back
       </button>
     </section>
   );
-}
+};
 
 export default CryptoExchangeDetails;

@@ -12,10 +12,10 @@
   "rules": {
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": ["error"],
-    "react/jsx-filename-extension": [ "warn", {"extensions": [".tsx"]} ],
+    "react/jsx-filename-extension": ["warn", { "extensions": [".tsx"] }],
     "react/react-in-jsx-scope": "off",
     "react/jsx-uses-react": "off",
-    "quotes": ["error", { "allowTemplateLiterals": true }],
+    // "quotes": ["error", { "allowTemplateLiterals": warn }],
     "semi": ["error", "never"]
   },
   "settings": {

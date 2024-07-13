@@ -3,16 +3,6 @@ import { useParams, useNavigate } from "react-router-dom";
 import { getExchangeById } from "../network/apis";
 import type { ExchangeID, ExchangeDetails } from "../utils/types";
 
-/* -- const socialMedia_urls = {
-  'Facebook': 'facebook_url',
-  'Reddit': 'reddit_url',
-  'Telegram': 'telegram_url',
-  'Slack': 'slack_url',
-  'other_url_1': 'other_url_1',
-  'other_url_2':'other_url_2'
-}
--- */
-
 const CryptoExchangeDetails: React.FC = () => {
   const navigate = useNavigate();
   const { id } = useParams<ExchangeID>();

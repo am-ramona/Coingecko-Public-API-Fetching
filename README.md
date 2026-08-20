@@ -1,3 +1,15 @@
+Roadmap
+Responsive React application
+CoinGecko API integration
+Exchange directory and detailed exchange profiles
+Cypress end-to-end testing
+ESLint and Prettier
+Configure Husky Git hooks
+Integrate lint-staged for pre-commit checks
+Expand automated test coverage
+Improve error and loading-state handling
+Add further accessibility improvements
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

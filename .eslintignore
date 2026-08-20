@@ -4,3 +4,4 @@ react-app-env.d.ts
 reportWebVitals.ts
 /cypress
 /cypress.config.ts
+jest.config.js

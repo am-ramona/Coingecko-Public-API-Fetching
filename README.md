@@ -28,13 +28,13 @@ The project was built with a focus on:
 
 ### Exchange Directory
 
-![Crypto Exchanges Directory](./docs/images/exchange-directory.png)
+![Crypto Exchanges Directory](./docs/images/desktop/exchange-directory.png)
 
 The main page displays a curated list of cryptocurrency exchanges retrieved from the CoinGecko API.
 
 ### Exchange Details
 
-![Exchange Details](./docs/images/exchange-details.png)
+![Exchange Details](./docs/images/desktop/exchange-details.png)
 
 Users can select an exchange to view its dedicated details page.
 

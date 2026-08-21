@@ -1,8 +1,7 @@
-```tsx
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-import Directory from "../pages/Directory";
-import { getExchanges, limit } from "../network/apis";
+import Directory from "../views/directory";
+import { getExchanges } from "../network/apis";
 
 jest.mock("../network/apis", () => ({
   getExchanges: jest.fn(),
@@ -48,9 +47,7 @@ describe("Directory", () => {
       screen.getByText(/CryptoCurrency exchanges on Coingecko/i)
     ).toBeInTheDocument();
 
-    expect(
-      screen.getByText(new RegExp(`limited to ${limit}`))
-    ).toBeInTheDocument();
+    expect(screen.getByText(/limited to 10/i)).toBeInTheDocument();
 
     expect(await screen.findByText("Coinbase Exchange")).toBeInTheDocument();
     expect(screen.getByText("Kraken")).toBeInTheDocument();
@@ -101,4 +98,3 @@ describe("Directory", () => {
     );
   });
 });
-```
